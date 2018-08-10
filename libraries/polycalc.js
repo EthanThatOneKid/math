@@ -2,6 +2,13 @@
 // |   PolyCalc    |
 // +---------------+
 //   \_ by EthanThatOneKid
+//    \_ Built-In Methods:
+//      \_ .solveForY(x)
+//      \_ .solveForRationalZeros()
+//      \_ .stringify()
+//      \_ .hmtlify(x)
+//      \_ .xFactor(x)
+//      \_ .getQuadraticSolution(x)
 
 class Polynomial {
 
@@ -17,16 +24,16 @@ class Polynomial {
   }
 
   solveForRationalZeros() {
-    let zeros = [], qs = Polynomial.getFactorsOf(this.constants[0]);
+    let zeros = new Set(), qs = Polynomial.getFactorsOf(this.constants[0]);
     for (let p of Polynomial.getFactorsOf(this.constants[this.constants.length - 1])) {
       for (let q of qs) {
         for (let i = -1; i <= 1; i += 2) {
           let pOverQ = p / q * i;
-          if (this.solveForY(pOverQ) == 0) zeros.push(pOverQ);
+          if (this.solveForY(pOverQ) == 0) zeros.add(pOverQ);
         }
       }
     }
-    return zeros.length > 0 ? zeros : "irrational";
+    return zeros.size > 0 ? [...zeros] : "irrational";
   }
 
   stringify() {
@@ -39,16 +46,42 @@ class Polynomial {
     }, "");
   }
 
-  add(n) {
-    this.constants = [n].concat(this.constants);
-  }
-
   log() {
     console.log(this.stringify());
   }
 
   htmlify() {
     return Polynomial.htmlify(this.stringify());
+  }
+
+  xFactor() {
+    if (this.constants.length != 3 || this.constants[0] != 1) return [];
+    let a = this.constants[this.constants.length - 2];
+    let b = this.constants[this.constants.length - 1];
+    return Polynomial.xFactor(a, b);
+  }
+
+  getQuadraticSolution() {
+    return Polynomial.getQuadraticSolution(this);
+  }
+
+  static xFactor(a, b) {
+    let factors = new Set();
+    let as = Polynomial.getFactorsOf(a, true);
+    let bs = Polynomial.getFactorsOf(b, true);
+    for (let c of bs.concat(as)) {
+      for (let d of as.concat(bs))
+        if (c * d == b && c + d == a) factors.add(c, d);
+    }
+    return [...factors];
+  }
+
+  static getQuadraticSolution(poly) {
+    let a = poly.constants[0], b = poly.constants[1], c = poly.constants[2];
+    let part1 = Math.sqrt((b * b) - (4 * a * c));
+    let part2 = [-b + part1, -b - part1];
+    let part3 = [part2[0] * 0.5 / a, part2[1] * 0.5 / a];
+    return [...new Set(part3)];
   }
 
   static getFactorsOf(n, includeNegatives = false) {
