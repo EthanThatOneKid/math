@@ -13,7 +13,6 @@ class Polynomial {
   }
 
   solveForY(x) {
-    if (x == 0) return this.solutions;
     return this.constants.reduce((acc, cur, i) => acc += cur * Math.pow(x, this.len - i - 1), 0);
   }
 
@@ -27,15 +26,16 @@ class Polynomial {
         }
       }
     }
-    return zeros;
+    return zeros.length > 0 ? zeros : "irrational";
   }
 
   stringify() {
     return this.constants.reduce((acc, cur, i) => {
-      let sign = cur >= 0 ? "+" : "-";
-      let constant = Math.abs(cur);
+      let sign = cur < 0 ? "-" : i > 0 ? "+" : "";
       let power = this.len - i - 1;
-      return acc += `${sign}${constant}x^${power}`;
+      let constant = Math.abs(cur) != 1 ||  power <= 1 ? Math.abs(cur) : "";
+      let xPower = power > 1 ? "x^" + power : power == 1 ? "x" : "";
+      return acc += `${sign}${constant}${xPower}`;
     }, "");
   }
 
@@ -59,24 +59,26 @@ class Polynomial {
     return includeNegatives ? arr.reduce((acc, cur) => acc.concat(cur * -1), arr) : arr;
   }
 
-  static htmlify(str) {
+  static htmlify(str, returnString = true) {
     let waitingForNonDigit = false;
     for (let i = 0; i < str.length; i++) {
       if (str[i] == "^") {
-        //str = str.substring(0, i) + "<sup>" + str.substring(i);
-        console.log(str = str.substring(0, i - 1) + "<sup>" + str.substring(i))
+        str = str.substring(0, i) + "<sup>" + str.substring(i + 1);
         waitingForNonDigit = true;
-      } //else if (waitingForNonDigit && ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9].includes(Number(str[i]))) {
-      //  str = str.substring(0, i) + "</sup>" + str.substring(i);
-      //  waitingForNonDigit = false;
-      //}
+        i += 5;
+      } else if (waitingForNonDigit && ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9].includes(Number(str[i]))) {
+        str = str.substring(0, i) + "</sup>" + str.substring(i);
+        waitingForNonDigit = false;
+        i += 6;
+      }
     }
-    /*
-    str = str.replace("+", "&plus;");
-    str = str.replace("-", "&minus;");
-    str = str.replace("/", "&divide;");
-    str = str.replace("*", "&times;");
-    */
-    return str;
+    str += "</sup>";
+    str = str.replace(/\x/g, "<i>x</i>")
+    str = str.replace(/\+/g, "&plus;");
+    str = str.replace(/\-/g, "&minus;");
+
+    let p = document.createElement("p");
+    p.innerHTML = str;
+    return returnString ? str : p;
   }
 }

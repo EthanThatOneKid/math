@@ -1,4 +1,6 @@
-window.onload = () => $("input").change(() => $("#y-out").text(new Polynomial($("#poly-in").val()).solveForY($("#x-in").val())));
-
-let poly = new Polynomial("2,1,-19,-9,9");
-console.log(poly.htmlify());
+window.onload = () => $("input").change(() => {
+  let poly = new Polynomial($("#poly-in").val());
+  let ans = poly.solveForY($("#x-in").val());
+  $("#y-out").text(ans);
+  $("#rich-poly").html(`<h3>${poly.htmlify()}</h3><br><label>Desmos-Readable Version: </label><code>${poly.stringify()}</code>`);
+});
