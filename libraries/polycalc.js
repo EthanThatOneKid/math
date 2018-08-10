@@ -6,9 +6,10 @@
 //      \_ .solveForY(x)
 //      \_ .solveForRationalZeros()
 //      \_ .stringify()
-//      \_ .hmtlify(x)
-//      \_ .xFactor(x)
-//      \_ .getQuadraticSolution(x)
+//      \_ .hmtlify()
+//      \_ .xFactor()
+//      \_ .getQuadraticSolution()
+//      \_ .combine(Polynomial)
 
 class Polynomial {
 
@@ -52,6 +53,13 @@ class Polynomial {
 
   htmlify() {
     return Polynomial.htmlify(this.stringify());
+  }
+
+  combine(poly) {
+    let a = poly.constants.reverse(), b = this.constants.reverse(), result = [];
+    for (let i = 0; i < Math.max(a.length, b.length); i++)
+      result.push((a[i] || 0) + (b[i] || 0));
+    return new Polynomial(result.reverse());
   }
 
   xFactor() {
