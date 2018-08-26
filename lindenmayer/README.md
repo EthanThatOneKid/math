@@ -1,7 +1,6 @@
 # Lindenmayer.js
 * [Dragon](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/dragon/index.html)
 
-<h1>Lindenmayer.js</h1>
 <h3>available functions:</h3>
 
 <ul>
