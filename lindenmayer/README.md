@@ -3,6 +3,7 @@
 * [Dragon](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/dragon/index.html)
 * [Binary](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/binary/index.html)
 * [Sierpinski](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/sierpinski/index.html)
+* [Koch](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/koch/index.html)
 
 <h3>available functions:</h3>
 
