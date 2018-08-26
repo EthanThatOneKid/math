@@ -1,5 +1,7 @@
 # Lindenmayer.js
+* [Wiki](https://en.wikipedia.org/wiki/L-system)
 * [Dragon](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/dragon/index.html)
+* [Binary](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/binary/index.html)
 
 <h3>available functions:</h3>
 

@@ -30,11 +30,12 @@ class Lindenmayer {
 
 class Turtle {
 
-  constructor(l, instructions, len = 1) {
+  constructor(l, instructions, len = 2, decay = 1) {
     this.l = l;
     this.instructions = instructions;
     this.len = len;
     this.pos = instructions.init();
+    this.decay = decay;
   }
 
   action() {
@@ -43,15 +44,22 @@ class Turtle {
   }
 
   generate(n) {
-    if (n < 0) this.l.revert(this.l.generations.length + n);
-    else this.l.generate(n);
+    if (n < 0) {
+      this.l.revert(this.l.generations.length + n);
+      this.len /= this.decay;
+    } else {
+      this.l.generate(n);
+      this.len *= this.decay;
+    }
   }
 
   render() {
-    let temp = this.pos;
+    let temp_pos = this.pos, temp_len = this.len;
     for (let char of this.l.currentGeneration)
       this.pos = this.instructions[char](this.pos, this.len);
-    this.pos = temp;
+      if (this.pos.len) this.len = this.pos.len;
+    this.pos = temp_pos;
+    this.len = temp_len;
   }
 
 }
