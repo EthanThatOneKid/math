@@ -65,6 +65,41 @@ function generate(dir) {
   document.getElementById("gen").innerHTML = turtle.l.generations.length - 1;
 }
 
+/*
+function mapToCurve() {
+  let d = Number(document.getElementById("d").value);
+  let pos = d2xy(turtle.l.generations.length, d);
+  push();
+  rotate(-Math.PI * 0.5);
+  ellipse(pos[0] * 5, pos[1] * 5, 5, 5);
+  pop();
+}
+
+function d2xy(n, d) {
+  let x = 0, y = 0;
+  let rx, ry, t = d;
+  for (let s = 1; s < n; s *= 2) {
+    rx = 1 & (t/2), ry = 1 & (t ^ rx);
+    rot(s, x, y, rx, ry);
+    x += s * rx;
+    y += s * ry;
+    t *= 0.25;
+  }
+  return [x, y];
+  function rot(n, rx, ry) {
+    if (ry == 0) {
+      if (rx == 1) {
+        x = n - 1 - x;
+        y = n - 1 - y;
+      }
+      let t  = x;
+      x = y;
+      y = t;
+    }
+  }
+}
+*/
+
 document.addEventListener("keydown", event => {
   switch (event.key) {
     case "ArrowUp": OFFY += OFFINC; break;
