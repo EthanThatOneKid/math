@@ -12,6 +12,8 @@
 * [Crystal](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/crystal/index.html)
 * [Rings](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/rings/index.html)
 * [Seaweed](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/seaweed/index.html)
+* [Snowflake](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/snowflake/index.html)
+* [Tree](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/tree/index.html)
 
 <h3>available functions:</h3>
 
