@@ -11,6 +11,7 @@
 * [Box](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/box/index.html)
 * [Crystal](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/crystal/index.html)
 * [Rings](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/rings/index.html)
+* [Seaweed](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/seaweed/index.html)
 
 <h3>available functions:</h3>
 
