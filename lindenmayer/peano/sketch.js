@@ -1,4 +1,4 @@
-let moore, turtle;
+let peano, turtle;
 let cnv, OFFX = 0, OFFY = 0, OFFINC = 5;
 let stats;
 
@@ -6,12 +6,12 @@ function setup() {
   cnv = createCanvas(400, 400);
   cnv.parent("cnv-container");
 
-  moore = new Lindenmayer("LFL+F+LFL", [
-    ["L", "-RF+LFL+FR-"],
-    ["R", "+LF-RFR-FL+"]
+  peano = new Lindenmayer("L", [
+    ["L", "LFRFL-F-RFLFR+F+LFRFL"],
+    ["R", "RFLFR+F+LFRFL-F-RFLFR"]
   ]);
 
-  turtle = new Turtle(moore, {
+  turtle = new Turtle(peano, {
     "init": () => {
       return {
         "x": 0,
@@ -38,7 +38,7 @@ function setup() {
     },
     "L": pos => pos,
     "R": pos => pos
-  }, 2);
+  }, 3);
 
   turtle.generate(2);
   generate();
@@ -51,15 +51,15 @@ function setup() {
 
 function draw() {
   background(255);
-  translate(1 + OFFX, height * 0.5 + OFFY);
+  translate(1 + OFFX, height - 1 + OFFY);
   turtle.render();
   stats.update();
 }
 
 function generate(dir) {
   switch (dir) {
-    case "forwards": turtle.generate(2); break;
-    case "backwards": turtle.generate(-2); break;
+    case "forwards": turtle.generate(1); break;
+    case "backwards": turtle.generate(-1); break;
     case "default": break;
   }
   document.getElementById("gen").innerHTML = turtle.l.generations.length - 1;
