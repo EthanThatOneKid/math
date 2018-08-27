@@ -22,6 +22,7 @@ class Lindenmayer {
   }
 
   revert(index = this.generations.length - 1) {
+    if (index < 0) return;
     this.generations = this.generations.slice(0, index);
     this.currentGeneration = this.generations[this.generations.length - 1];
   }
