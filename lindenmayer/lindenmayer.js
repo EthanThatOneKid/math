@@ -22,9 +22,10 @@ class Lindenmayer {
   }
 
   revert(index = this.generations.length - 1) {
-    if (index < 0) return;
-    this.generations = this.generations.slice(0, index);
-    this.currentGeneration = this.generations[this.generations.length - 1];
+    if (index > 0) {
+      this.generations = this.generations.slice(0, index);
+      this.currentGeneration = this.generations[this.generations.length - 1];
+    } else console.error("Cannot revert below 0!");
   }
 
 }
