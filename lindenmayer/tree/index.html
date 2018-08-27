@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>lindenmayer/tree</title>
+  <script src="https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
+  <script src="../lindenmayer.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body>
+
+  <div id="cnv-container"></div>
+
+  <button onclick="generate('forwards')">gen</button>
+  <button onclick="generate('backwards')">rev</button>
+  <p>generation:<span id="gen"></span></p>
+
+  <label>angle</label>
+  <input id="a" type="range" min="0" max="1.571" step="0.001" value="0.349">
+  <label id="data"></label>
+
+</body>
+</html>
