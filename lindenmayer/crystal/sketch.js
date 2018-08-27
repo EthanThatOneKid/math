@@ -1,4 +1,4 @@
-let gosper, turtle;
+let crystal, turtle;
 let cnv, OFFX = 0, OFFY = 0, OFFINC = 5;
 let stats;
 
@@ -6,12 +6,11 @@ function setup() {
   cnv = createCanvas(400, 400);
   cnv.parent("cnv-container");
 
-  gosper = new Lindenmayer("XF", [
-    ["X", "X+YF++YF-FX-FXFX-YF+"],
-    ["Y", "-FX+YFYF++YF+FX-FX-Y"]
+  crystal = new Lindenmayer("F+F+F+F", [
+    ["F", "FF+F++F+F"]
   ]);
 
-  turtle = new Turtle(gosper, {
+  turtle = new Turtle(crystal, {
     "init": () => {
       return {
         "x": 0,
@@ -29,15 +28,13 @@ function setup() {
       return gimmePos;
     },
     "-": (pos) => {
-      pos.a += Math.PI / 3;
+      pos.a += Math.PI * 0.5;
       return pos;
     },
     "+": (pos) => {
-      pos.a -= Math.PI / 3;
+      pos.a -= Math.PI * 0.5;
       return pos;
-    },
-    "X": pos => pos,
-    "Y": pos => pos
+    }
   }, 5);
 
   turtle.generate(2);
@@ -51,7 +48,7 @@ function setup() {
 
 function draw() {
   background(255);
-  translate(width * 0.5 + OFFX, height * 0.5 + OFFY);
+  translate(0 + OFFX, height - 1  + OFFY);
   turtle.render();
   stats.update();
 }
