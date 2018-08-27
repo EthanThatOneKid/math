@@ -8,6 +8,7 @@
 * [Hilbert](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/hilbert/index.html)
 * [Moore](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/moore/index.html)
 * [Peano](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/peano/index.html)
+* [Box](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/box/index.html)
 
 <h3>available functions:</h3>
 
