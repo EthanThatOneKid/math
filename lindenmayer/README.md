@@ -26,30 +26,68 @@
       <li>axiom marks the initial generation</li>
       <li>rules declares how generate() will generate future generations</li>
     </ul>
-  </li>
-
-  <li>
-    generate(epochs)
+    <h2>Methods of Lindenmayer</h2>
     <ul>
-      <li>updates generations over an amount of epochs</li>
-      <li>default epochs = 1</li>
+      <li>
+        generate(epochs)
+        <ul>
+          <li>updates generations over an amount of epochs</li>
+          <li>default epochs = 1</li>
+        </ul>
+      </li>
+
+      <li>
+        revert(generation)
+        <ul>
+          <li>reverts back to a previous generation</li>
+          <li>default generation = one before current</li>
+        </ul>
+      </li>
+
+      <li>
+        birth(mutator)
+        <ul>
+          <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
+          <li>returns an offspring</li>
+          <li>if no mutator is available, returns a perfect clone</li>
+        </ul>
+      </li>
     </ul>
   </li>
 
   <li>
-    revert(generation)
+    new Lindenmayer(axiom, rules)
     <ul>
-      <li>reverts back to a previous generation</li>
-      <li>default generation = one before current</li>
+      <li>creates a new instance of Lindenmayer class</li>
+      <li>axiom marks the initial generation</li>
+      <li>rules declares how generate() will generate future generations</li>
     </ul>
-  </li>
-
-  <li>
-    birth(mutator)
+    <h2>Methods of Lindenmayer</h2>
     <ul>
-      <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
-      <li>returns an offspring</li>
-      <li>if no mutator is available, returns a perfect clone</li>
+      <li>
+        generate(epochs)
+        <ul>
+          <li>updates generations over an amount of epochs</li>
+          <li>default epochs = 1</li>
+        </ul>
+      </li>
+
+      <li>
+        revert(generation)
+        <ul>
+          <li>reverts back to a previous generation</li>
+          <li>default generation = one before current</li>
+        </ul>
+      </li>
+
+      <li>
+        birth(mutator)
+        <ul>
+          <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
+          <li>returns an offspring</li>
+          <li>if no mutator is available, returns a perfect clone</li>
+        </ul>
+      </li>
     </ul>
   </li>
 

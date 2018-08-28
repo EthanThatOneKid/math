@@ -47,11 +47,6 @@ class Turtle {
     this.decay = decay;
   }
 
-  action() {
-    this.l.generate();
-    this.render();
-  }
-
   generate(n) {
     if (n < 0) {
       this.l.revert(this.l.generations.length + n);
