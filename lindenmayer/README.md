@@ -17,80 +17,19 @@
 * [Spruce](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/spruce/index.html)
 * [Hand of Davidson](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/hand/index.html)
 
-<h3>available functions:</h3>
-
-<ul>
-
-  <li>
-    new Lindenmayer(axiom, rules)
-    <ul>
-      <li>creates a new instance of Lindenmayer class</li>
-      <li>axiom marks the initial generation</li>
-      <li>rules declares how generate() will generate future generations</li>
-    </ul>
-    <h2>Methods of Lindenmayer</h2>
-    <ul>
-      <li>
-        generate(epochs)
-        <ul>
-          <li>updates generations over an amount of epochs</li>
-          <li>default epochs = 1</li>
-        </ul>
-      </li>
-
-      <li>
-        revert(generation)
-        <ul>
-          <li>reverts back to a previous generation</li>
-          <li>default generation = one before current</li>
-        </ul>
-      </li>
-
-      <li>
-        birth(mutator)
-        <ul>
-          <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
-          <li>returns an offspring</li>
-          <li>if no mutator is available, returns a perfect clone</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    new Lindenmayer(axiom, rules)
-    <ul>
-      <li>creates a new instance of Lindenmayer class</li>
-      <li>axiom marks the initial generation</li>
-      <li>rules declares how generate() will generate future generations</li>
-    </ul>
-    <h2>Methods of Lindenmayer</h2>
-    <ul>
-      <li>
-        generate(epochs)
-        <ul>
-          <li>updates generations over an amount of epochs</li>
-          <li>default epochs = 1</li>
-        </ul>
-      </li>
-
-      <li>
-        revert(generation)
-        <ul>
-          <li>reverts back to a previous generation</li>
-          <li>default generation = one before current</li>
-        </ul>
-      </li>
-
-      <li>
-        birth(mutator)
-        <ul>
-          <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
-          <li>returns an offspring</li>
-          <li>if no mutator is available, returns a perfect clone</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-
-</ul>
+## available functions:
+* '''new Lindenmayer(axiom, rules)'''
+  * creates a new instance of Lindenmayer class
+  * axiom marks the initial generation
+  * rules declares how generate() will generate future generations
+  * ### methods
+    * '''generate(epochs)'''
+      * updates generations over an amount of epochs
+      * default epochs = 1
+    * '''revert(generation)'''
+      * reverts back to a previous generation
+      * default generation = one before current
+    * '''birth(mutator)'''
+      * mutator = (axiom, rules) => return object of a slightly mutated axiom and rules
+      * returns an offspring
+      * if no mutator is given, returns a clone
