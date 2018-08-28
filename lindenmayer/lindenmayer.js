@@ -58,13 +58,11 @@ class Turtle {
   }
 
   render() {
-    let temp_pos = this.pos, temp_len = this.len, temp_a = this.pos.a;
-    for (let char of this.l.currentGeneration)
-      this.pos = this.instructions[char](this.pos, this.len);
-      if (this.pos.len) this.len = this.pos.len;
-    this.pos = temp_pos;
-    this.len = temp_len;
-    this.pos.a = temp_a;
+    let temp_pos = this.pos, temp_len = this.len;
+    for (let char of this.l.currentGeneration) {
+      temp_pos = this.instructions[char](temp_pos, temp_len);
+      if (temp_pos.len) temp_len = temp_pos.len;
+    }
   }
 
 }

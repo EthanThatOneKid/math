@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>lindenmayer/hand</title>
+  <script src="https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
+  <script src="../lindenmayer.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body>
+
+  <div id="cnv-container"></div>
+
+  <button onclick="generate('forwards')">gen</button>
+  <button onclick="generate('backwards')">rev</button>
+  <p>generation:<span id="gen"></span></p>
+
+  <label>angle</label>
+  <input id="a" type="range" min="0" max="1.571" step="0.001" value="0.393">
+  <label id="data"></label>
+
+  <p>
+    This is the first l-system that I have created by hand.
+    I created my own rules for this l-system to take the form of a human hand.
+    It has 5 appendages, sprouting from one point.
+    To make it procedural, I had it grow a new hand at the tip of each finger.
+    My inspiration was da Vinci's "Vitruvian Man".
+  </p>
+
+</body>
+</html>

@@ -14,6 +14,8 @@
 * [Seaweed](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/seaweed/index.html)
 * [Snowflake](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/snowflake/index.html)
 * [Tree](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/tree/index.html)
+* [Spruce](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/spruce/index.html)
+* [Hand of Davidson](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/hand/index.html)
 
 <h3>available functions:</h3>
 
