@@ -18,18 +18,18 @@
 * [Hand of Davidson](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/hand/index.html)
 
 ## available functions:
-* '''new Lindenmayer(axiom, rules)'''
+* `new Lindenmayer(axiom, rules)`
   * creates a new instance of Lindenmayer class
   * axiom marks the initial generation
   * rules declares how generate() will generate future generations
   * ### methods
-    * '''generate(epochs)'''
+    * `generate(epochs)`
       * updates generations over an amount of epochs
       * default epochs = 1
-    * '''revert(generation)'''
+    * `revert(generation)`
       * reverts back to a previous generation
       * default generation = one before current
-    * '''birth(mutator)'''
+    * `birth(mutator)`
       * mutator = (axiom, rules) => return object of a slightly mutated axiom and rules
       * returns an offspring
       * if no mutator is given, returns a clone
