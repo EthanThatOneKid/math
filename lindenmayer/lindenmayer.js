@@ -4,6 +4,7 @@
 class Lindenmayer {
 
   constructor(axiom, rules) {
+    this.axiom = axiom;
     this.rules = rules;
     this.generations = [axiom];
     this.currentGeneration = axiom;
@@ -30,11 +31,8 @@ class Lindenmayer {
 
   birth(mutator) {
     if (typeof mutator != "function") return new Lindenmayer(this.axiom, this.rules);
-    let data = mutator({
-      "axiom": this.generations[0],
-      "rules": this.rules
-    });
-    return new Lindenmayer(data.axiom, data.rules);
+    let genotype = mutator(this.axiom, this.rules);
+    return new Lindenmayer(genotype.axiom, genotype.rules);
   }
 
 }
