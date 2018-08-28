@@ -44,4 +44,13 @@
     </ul>
   </li>
 
+  <li>
+    birth(mutator)
+    <ul>
+      <li>mutator = (axiom, rules) => return object of a slightly mutated axiom and rules</li>
+      <li>returns an offspring</li>
+      <li>if no mutator is available, returns a perfect clone</li>
+    </ul>
+  </li>
+
 </ul>

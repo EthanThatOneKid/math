@@ -28,6 +28,15 @@ class Lindenmayer {
     } else console.error("Cannot revert below 0!");
   }
 
+  birth(mutator) {
+    if (typeof mutator != "function") return new Lindenmayer(this.axiom, this.rules);
+    let data = mutator({
+      "axiom": this.generations[0],
+      "rules": this.rules
+    });
+    return new Lindenmayer(data.axiom, data.rules);
+  }
+
 }
 
 class Turtle {
