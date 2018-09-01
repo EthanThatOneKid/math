@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <title>Cribbage Calculator</title>
+	<script src="../cribbage.js"></script>
+	<link rel="stylesheet" href="cribbage.css">
+</head>
+<body>
+  <h1 align='center'>Cribbage Calculator</h1>
+	<table id='hand' align='center'>
+		<tr><td align='center'>
+		<form onchange='changeCard("card1")' id='card1'>
+		<select class='card'>
+			<option value="A">A</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="J">J</option>
+			<option value="Q">Q</option>
+			<option value="K">K</option>
+		</select>
+		<br>
+		<select class='suit'>
+			<option value="S">SPADES</option>
+			<option value="C">CLUBS</option>
+			<option value="D">DIAMONDS</option>
+			<option value="H">HEARTS</option>
+		</select>
+		<br>
+		<img class='display' src='' width=25%>
+		</form>
+		</td>
+
+		<td align='center'>
+		<form onchange='changeCard("card2")' id='card2'>
+		<select class='card'>
+			<option value="A">A</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="J">J</option>
+			<option value="Q">Q</option>
+			<option value="K">K</option>
+		</select>
+		<br>
+		<select class='suit'>
+			<option value="S">SPADES</option>
+			<option value="C">CLUBS</option>
+			<option value="D">DIAMONDS</option>
+			<option value="H">HEARTS</option>
+		</select>
+		<br>
+		<img class='display' src='' width=25%>
+		</form>
+		</td>
+
+		<td align='center'>
+		<form onchange='changeCard("card3")' id='card3'>
+		<select class='card'>
+			<option value="A">A</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="J">J</option>
+			<option value="Q">Q</option>
+			<option value="K">K</option>
+		</select>
+		<br>
+		<select class='suit'>
+			<option value="S">SPADES</option>
+			<option value="C">CLUBS</option>
+			<option value="D">DIAMONDS</option>
+			<option value="H">HEARTS</option>
+		</select>
+		<br>
+		<img class='display' src='' width=25%>
+		</form>
+		</td>
+
+		<td align='center'>
+		<form onchange='changeCard("card4")' id='card4'>
+		<select class='card'>
+			<option value="A">A</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="J">J</option>
+			<option value="Q">Q</option>
+			<option value="K">K</option>
+		</select>
+		<br>
+		<select class='suit'>
+			<option value="S">SPADES</option>
+			<option value="C">CLUBS</option>
+			<option value="D">DIAMONDS</option>
+			<option value="H">HEARTS</option>
+		</select>
+		<br>
+		<img class='display' src='' width=25%>
+		</form>
+		</td>
+
+		<td align='center'>
+		<small>starter</small>
+		<form onchange='changeCard("card5")' id='card5'>
+		<select class='card'>
+			<option value="A">A</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="J">J</option>
+			<option value="Q">Q</option>
+			<option value="K">K</option>
+		</select>
+		<br>
+		<select class='suit'>
+			<option value="S">SPADES</option>
+			<option value="C">CLUBS</option>
+			<option value="D">DIAMONDS</option>
+			<option value="H">HEARTS</option>
+		</select>
+		<br>
+		<img class='display' src='' width=25%>
+		</form>
+		</td>
+	</table>
+
+	<button class="button button1" onclick='setHand("hand")'>compute hand</button>
+	<div id='ans'></div>
+  <script src="main.js"></script>
+</body>
+</html>
