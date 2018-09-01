@@ -10,3 +10,4 @@
   * returns array of vectors, `[value, number of times it occurs]`
 ## examples:
 * [Demo](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/stats/examples/demo/index.html)
+* [Linear Regression](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/stats/examples/linearRegression/index.html)
