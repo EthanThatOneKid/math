@@ -16,6 +16,10 @@ class Stats {
     console.log(this.data);
   }
 
+  copy() {
+    return Stats.copy(this.data);
+  }
+
   summary() {
     return {
       "average": Stats.average([...this.data]),
@@ -55,6 +59,10 @@ class Stats {
     let hist = Stats.histogram(list);
     hist = hist.sort((a, b) => b[1] - a[1]);
     return Number(hist[0][0]);
+  }
+
+  static copy(data) {
+    return new Stats([...data]);
   }
 
   static histogram(list) {
