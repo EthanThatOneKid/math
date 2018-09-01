@@ -1,0 +1,14 @@
+table, tr, td {
+  border: 1px solid black;
+}
+
+i {
+  float: right;
+}
+
+li {
+  padding-right: 25px;
+  padding-left: 25px;
+  border: 1px solid black;
+  width: 10vw;
+}

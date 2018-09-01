@@ -65,6 +65,19 @@ class Stats {
     return new Stats([...data]);
   }
 
+  static linearRegression(array2xN) {
+    let sumX = array2xN.reduce((acc, cur) => acc += cur[0], 0);
+    let sumY = array2xN.reduce((acc, cur) => acc += cur[1], 0);
+    let sumXY = array2xN.reduce((acc, cur) => acc += cur[0] * cur[1], 0);
+    let sumX2 = array2xN.reduce((acc, cur) => acc += cur[0] * cur[0], 0);
+    let sumY2 = array2xN.reduce((acc, cur) => acc += cur[1] * cur [1], 0);
+    let n = array2xN.length;
+    let denominator = ((n * sumX2) - (sumX * sumX));
+    let a = ((n * sumXY) - (sumX * sumY)) / denominator;
+    let b = ((sumY * sumX2) - (sumX * sumXY)) / denominator;
+    return {a, b};
+  }
+
   static histogram(list) {
     let hist = list.reduce((acc, cur) => {
       acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
