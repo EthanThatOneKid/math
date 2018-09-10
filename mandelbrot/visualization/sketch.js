@@ -16,7 +16,6 @@ function setup() {
   stats.dom.style.bottom = stats.dom.style.right = "0";
   $("body").append(stats.dom);
 
-  //$("input").change(updateMandelbrot);
 }
 
 function draw() {
@@ -28,19 +27,23 @@ function draw() {
 
 function renderMandelbrot() {
   for (let vert of mandelbrot.points) {
+    if (mandelbrot.defaultInitConfig.allPoints) stroke(vert[2] * 255);
+    else stroke(0);
     point(vert[0] * width, vert[1] * height);
   }
 }
 
 function initializeGUI() {
   gui = new dat.GUI({autoPlace: false});
-  gui_config = {iterations: 10, minZoom: -1.5, maxZoom: 1.5};
+  gui_config = {iterations: 10, minZoom: -1.5, maxZoom: 1.5, colorize: false};
   let its_controller = gui.add(gui_config, "iterations", 5, 100);
   let miz_controller = gui.add(gui_config, "minZoom", -3, 3).step(0.001);
   let maz_controller = gui.add(gui_config, "maxZoom", -3, 3).step(0.001);
-  its_controller.onFinishChange(val => {mandelbrot.iterations = Math.floor(val); mandelbrot.init();});
-  miz_controller.onChange(val => {mandelbrot.zoom.min = val; mandelbrot.init();});
-  maz_controller.onChange(val => {mandelbrot.zoom.max = val; mandelbrot.init();});
+  let col_controller = gui.add(gui_config, "colorize");
+  its_controller.onFinishChange(val => {mandelbrot.defaultInitConfig.iterations = Math.floor(val); mandelbrot.init();});
+  miz_controller.onChange(val => {mandelbrot.defaultInitConfig.minZoom = val; mandelbrot.init();});
+  maz_controller.onChange(val => {mandelbrot.defaultInitConfig.maxZoom = val; mandelbrot.init();});
+  col_controller.onChange(val => mandelbrot.defaultInitConfig.allPoints = val);
   $("#cnv-container").append(gui.domElement);
 }
 

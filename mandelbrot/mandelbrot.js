@@ -8,20 +8,26 @@ class Mandelbrot {
     this.points = [];
     this.zoom = {"min": -1.5, "max": 1.5};
     this.iterations = 10;
+    this.defaultInitConfig = {
+      iterations: this.iterations,
+      minZoom: this.size * this.zoom.min,
+      maxZoom: this.size * this.zoom.max,
+      allPoints: false
+    };
     this.init();
   }
 
-  init(iterations = this.iterations, minZoom = this.size * this.zoom.min, maxZoom = this.size * this.zoom.max) {
+  init(config = this.defaultInitConfig) {
     this.matrix = [], this.points = [];
     for (let y = 0; y < this.size; y += this.size / this.s) {
       let gimmeRow = [];
       for (let x = 0; x < this.size; x += this.size / this.s) {
-        let a = Mandelbrot.map(x, 0, this.size, minZoom, maxZoom);
-        let b = Mandelbrot.map(y, 0, this.size, minZoom, maxZoom);
+        let a = Mandelbrot.map(x, 0, this.size, config.minZoom, config.maxZoom);
+        let b = Mandelbrot.map(y, 0, this.size, config.minZoom, config.maxZoom);
         let ca = a, cb = b, n;
         let arbitraryNumberIndicatingApproachToInfinity = 16;
 
-        for (n = 0; n < iterations; n++) {
+        for (n = 0; n < config.iterations; n++) {
           let aa = a * a - b * b;
           let bb = 2 * a * b;
           a = aa + ca;
@@ -30,13 +36,15 @@ class Mandelbrot {
         }
 
         let roundResult = Math.round(Math.log(this.s));
-        let threshToAppear = 0.075;
-        let isEdgePiece = n == iterations;
+        let isEdgePiece = n == config.iterations;
         gimmeRow.push(isEdgePiece);
-        if (isEdgePiece) this.points.push([
-          Number(x.toFixed(roundResult)) - (this.size * 0.5),
-          Number(y.toFixed(roundResult)) - (this.size * 0.5)
-        ]);
+        if (config.allPoints || isEdgePiece) {
+          this.points.push([
+            Number(x.toFixed(roundResult)) - (this.size * 0.5),
+            Number(y.toFixed(roundResult)) - (this.size * 0.5),
+            n / 10 // brightness from 0 to 1
+          ]);
+        }
       }
       this.matrix.push(gimmeRow);
     }
