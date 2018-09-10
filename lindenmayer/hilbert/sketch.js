@@ -53,6 +53,7 @@ function draw() {
   background(255);
   translate(0 + OFFX, height - 1 + OFFY);
   turtle.render();
+  // mapToCurve();
   stats.update();
 }
 
@@ -66,8 +67,11 @@ function generate(dir) {
 }
 
 /*
+
 function mapToCurve() {
   let d = Number(document.getElementById("d").value);
+  document.getElementById("d").max = Math.pow(3, turtle.l.generations.length);
+  console.log(d);
   let pos = d2xy(turtle.l.generations.length, d);
   push();
   rotate(-Math.PI * 0.5);
@@ -98,6 +102,7 @@ function d2xy(n, d) {
     }
   }
 }
+
 */
 
 document.addEventListener("keydown", event => {
