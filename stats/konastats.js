@@ -24,7 +24,8 @@ class Stats {
     return {
       "average": Stats.average([...this.data]),
       "median": Stats.median([...this.data]),
-      "mode": Stats.mode([...this.data])
+      "mode": Stats.mode([...this.data]),
+      "boxplot": JSON.stringify(Stats.boxplot([...this.data]))
     };
   }
 
@@ -63,6 +64,18 @@ class Stats {
 
   static copy(data) {
     return new Stats([...data]);
+  }
+
+  static boxplot(data) {
+    data = data.sort((a, b) => a - b);
+    let center = Math.floor(data.length * 0.5);
+    return {
+      min: data[0],
+      q1: Stats.median(data.slice(0, center)),
+      median: Stats.median(data),
+      q3: Stats.median(data.slice(data.length % 2 == 0 ? center : center + 1)),
+      max: data[data.length - 1]
+    };
   }
 
   static linearRegression(array2xN) {
