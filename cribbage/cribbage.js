@@ -16,18 +16,23 @@ class Cribbage {
 	}
 
 	static randomHand(len = 5) {
-    let result = [];
-    const suits = ["S", "C", "D", "H"];
-    const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
-    for (let i = 0; i < len; i++) {
+		let result = [];
+		const suits = ["S", "C", "D", "H"];
+		const royalty = {
+			"1": "A",
+			"11": "J",
+			"12": "Q",
+			"13": "K"
+		};
+		for (let i = 0; i < len; i++) {
 			const val = Math.floor(Math.random() * 13) + 1;
-      result.push({
-        "value": val > 10 ? 10 : val,
-        "suit": suits[Math.floor(Math.random() * suits.length)],
-        "card": val > 10 || val == 1 ? royalty[val] : val
-      });
-    }
-    return result;
+			result.push({
+				"value": val > 10 ? 10 : val,
+				"suit": suits[Math.floor(Math.random() * suits.length)],
+				"card": val > 10 || val == 1 ? royalty[val] : val
+			});
+		}
+		return result;
 	}
 
 	static fifteens(hand) {
@@ -42,20 +47,20 @@ class Cribbage {
 		return score;
 	}
 
-  static matches(hand) {
-    return Object.entries(hand.reduce((a, c) => {
-      c = c.card;
-      a[c] = a[c] ? a[c] + 1 : 1;
-      return a;
-    }, {})).filter(x => x[1] > 1);
-  }
+	static matches(hand) {
+		return Object.entries(hand.reduce((a, c) => {
+			c = c.card;
+			a[c] = a[c] ? a[c] + 1 : 1;
+			return a;
+		}, {})).filter(x => x[1] > 1);
+	}
 
 	static flush(hand) {
 		return Object.entries(hand.reduce((a, c) => {
-      c = c.suit;
-      a[c] = a[c] ? a[c] + 1 : 1;
-      return a;
-    }, {})).filter(x => x[1] > 3);
+			c = c.suit;
+			a[c] = a[c] ? a[c] + 1 : 1;
+			return a;
+		}, {})).filter(x => x[1] > 3);
 	}
 
 	static run(temp_hand) {
@@ -65,9 +70,9 @@ class Cribbage {
 			x.card == "J" ? 11 :
 			x.card == "A" ? 1 : x.value
 		).reduce((a, c) => {
-      a[c] = a[c] ? a[c] + 1 : 1;
-      return a;
-    }, {})).map(x => [Number(x[0]), x[1]]).sort((a, b) => a[0] - b[0]);
+			a[c] = a[c] ? a[c] + 1 : 1;
+			return a;
+		}, {})).map(x => [Number(x[0]), x[1]]).sort((a, b) => a[0] - b[0]);
 		let run = [hand[0]];
 		for (let i = 1; i < hand.length; i++) {
 			if (hand[i - 1][0] + 1 == hand[i][0]) {
@@ -89,10 +94,10 @@ class Cribbage {
 
 	static isValid(hand) {
 		return Object.values(hand.reduce((a, c) => {
-      c = c.card + c.suit;
-      a[c] = a[c] ? a[c] + 1 : 1;
-      return a;
-    }, {})).length == hand.length;
+			c = c.card + c.suit;
+			a[c] = a[c] ? a[c] + 1 : 1;
+			return a;
+		}, {})).length == hand.length;
 	}
 
 	static total(crib) {
@@ -111,7 +116,7 @@ class Cribbage {
 
 		data["run"] = crib.run.length ? JSON.stringify(crib.run) : "none";
 		let run = crib.run.length,
-				scl = crib.run.reduce((acc, cur) => acc <= cur[1] ? acc * cur[1] : acc, 1);
+			scl = crib.run.reduce((acc, cur) => acc <= cur[1] ? acc * cur[1] : acc, 1);
 		total += scl == 1 ? run :
 			scl == 2 && run == 3 ? 8 :
 			scl == 2 && run == 4 ? 10 :

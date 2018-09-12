@@ -2,48 +2,53 @@ window.onload = changeAll;
 let hand;
 
 function changeCard(id) {
-  var card = document.getElementById(id).getElementsByClassName("card")[0].value;
-  var suit = document.getElementById(id).getElementsByClassName("suit")[0].value;
-  var path = "../cgi-bin/" + card.toLowerCase() + suit.toLowerCase() + ".png";
-  document.getElementById(id).getElementsByClassName("display")[0].src = path;
-  loadHand();
+	var card = document.getElementById(id).getElementsByClassName("card")[0].value;
+	var suit = document.getElementById(id).getElementsByClassName("suit")[0].value;
+	var path = "../cgi-bin/" + card.toLowerCase() + suit.toLowerCase() + ".png";
+	document.getElementById(id).getElementsByClassName("display")[0].src = path;
+	loadHand();
 }
 
 function changeAll() {
-  for (let i = 1; i < 6; i++) changeCard("card" + i);
+	for (let i = 1; i < 6; i++) changeCard("card" + i);
 }
 
 function loadHand() {
-  gimme = [];
-  const royalty = {"A": 1, "J": 10, "Q": 10, "K": 10};
-  for (let i = 1; i < 6; i++) {
-    let card = document.getElementById("card" + i).getElementsByClassName("card")[0].value,
-        suit = document.getElementById("card" + i).getElementsByClassName("suit")[0].value;
-    gimme.push({
-      "value": Number(card) || royalty[card],
-      "suit": suit,
-      "card": Number(card) || card
-    });
-  }
-  hand = new Cribbage(gimme);
-  computeHand();
+	gimme = [];
+	const royalty = {
+		"A": 1,
+		"J": 10,
+		"Q": 10,
+		"K": 10
+	};
+	for (let i = 1; i < 6; i++) {
+		let card = document.getElementById("card" + i).getElementsByClassName("card")[0].value,
+			suit = document.getElementById("card" + i).getElementsByClassName("suit")[0].value;
+		gimme.push({
+			"value": Number(card) || royalty[card],
+			"suit": suit,
+			"card": Number(card) || card
+		});
+	}
+	hand = new Cribbage(gimme);
+	computeHand();
 }
 
 function computeHand() {
-  let el = Object.entries(hand.total).reduce((tb, row) => {
-    let tr = document.createElement("tr"),
-        td1 = document.createElement("td"),
-        td2 = document.createElement("td");
-    td1.innerHTML = row[0];
-    td2.innerHTML = row[1];
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tb.appendChild(tr);
-    return tb;
-  }, document.createElement("table"));
-  el.align = "center";
+	let el = Object.entries(hand.total).reduce((tb, row) => {
+		let tr = document.createElement("tr"),
+			td1 = document.createElement("td"),
+			td2 = document.createElement("td");
+		td1.innerHTML = row[0];
+		td2.innerHTML = row[1];
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tb.appendChild(tr);
+		return tb;
+	}, document.createElement("table"));
+	el.align = "center";
 
-  document.getElementById("result").innerHTML = el.outerHTML;
+	document.getElementById("result").innerHTML = el.outerHTML;
 }
 
 /*
