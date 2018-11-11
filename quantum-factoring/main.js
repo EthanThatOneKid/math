@@ -13,6 +13,12 @@ const matmul = (v1, v2) => {
   } return product;
 }
 
+const matmul_es6 = (a, b) => {
+  return new Array(a.length).fill(0)
+    .map(row => new Array(b[0].length).fill(0))
+    .map((row, i) => row.map((val, j) => a[i].reduce((sum, cur, k) => sum + (cur * b[k][j]), 0)));
+}
+
 // Tests:
 
 const test_gcd_in = [81, 63];
@@ -22,3 +28,7 @@ console.log({test_gcd_in, test_gcd_out});
 const test_matmul_in = [[[1, 2, 3],[4, 5, 6]],[[7, 8],[9, 10],[11, 12]]];
 const test_matmul_out = matmul(...test_matmul_in);
 console.log({test_matmul_in, test_matmul_out});
+
+const test_matmul_es6_in = [[[1, 2, 3],[4, 5, 6]],[[7, 8],[9, 10],[11, 12]]];
+const test_matmul_es6_out = matmul_es6(...test_matmul_es6_in);
+console.log({test_matmul_es6_in, test_matmul_es6_out});
