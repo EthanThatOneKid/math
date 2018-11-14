@@ -1,4 +1,6 @@
 # Lindenmayer.js
+
+## Demos:
 * [Wiki](https://en.wikipedia.org/wiki/L-system)
 * [Dragon](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/dragon/index.html)
 * [Binary](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/binary/index.html)
@@ -17,7 +19,7 @@
 * [Spruce](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/spruce/index.html)
 * [Hand of Davidson](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/lindenmayer/hand/index.html)
 
-## available functions:
+## Documentation:
 * `new Lindenmayer(axiom, rules)`
   * creates a new instance of Lindenmayer class
   * axiom marks the initial generation
