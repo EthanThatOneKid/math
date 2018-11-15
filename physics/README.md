@@ -50,11 +50,12 @@ Than.js is a JavaScript library of physics operations.
     }
     ```
   * returns
-  ```javascript
-  {
-    "theta": <number (radians)>,      "magnitude": <number>
-  }
-  ```
+    ```javascript
+    {
+      "theta": <number (radians)>,
+      "magnitude": <number>
+    }
+    ```
 * `Than.radians(degrees)`
   * `degrees` = an angle in degrees
   * returns that angle in radians
