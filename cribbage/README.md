@@ -1,9 +1,10 @@
 # Cribbage.js
 
-## [The Cribbage Calculator](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/cribbage/demo/index.html)
+## 😊 [The Cribbage Calculator](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/cribbage/demo/index.html)😊
 
 ## Documentation:
-* ### initialization: `const crib = new Cribbage(hand);`
+* ### initialization:
+  > `const crib = new Cribbage(hand);`
   * `hand` =
     ```javascript
     [
@@ -18,6 +19,7 @@
 * ### statics:
   * `Cribbage.randomHand(len)`
     * `len` = integer signifying the amount of cards in the hand. Falls back to `5`.
+    * returns an array of randomly generated plain card objects.
   * `Cribbage.fifteens(hand)`
     * returns the amount of 15's in `hand`, but doubled so it signifies point value.
   * `Cribbage.matches(hand)`
