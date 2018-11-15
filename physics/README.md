@@ -35,12 +35,12 @@ Than.js is a JavaScript library of physics operations.
     }
     ```
   * returns
-  ```javascript
-  {
-    "x": <number>,
-    "y": <number>
-  }
-  ```
+    ```javascript
+    {
+      "x": <number>,
+      "y": <number>
+    }
+    ```
 * `Than.polar(coords)`
   * `coords` =
     ```javascript
@@ -61,7 +61,7 @@ Than.js is a JavaScript library of physics operations.
 * `Than.degrees(radians)`
   * `radians` = an angle in radians
   * returns that angle in degrees
-  
+
 ## Examples
 * [Conversion](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/physics/conversion/index.html)
 * [Sum Vectors](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/physics/sumvectors/index.html)
