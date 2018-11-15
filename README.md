@@ -2,7 +2,7 @@
 EthanThatOneKid's archive of mathematical experimentations and applications.
 
 ## Completed Projects:
-* [Cribbage Calc](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/cribbage/demo/index.html) (Needs Documentation)
+* [Cribbage Calc](cribbage/) (Needs Documentation)
 * [Mandelbrot Visualization](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/mandelbrot/visualization/index.html)
 * [Lindenmayer.js Demos](lindenmayer/)
 * [Limacon Visualizations](limacon/)
