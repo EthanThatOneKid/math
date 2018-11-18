@@ -10,4 +10,4 @@ EthanThatOneKid's archive of mathematical experimentations and applications.
 ## Accumulative Projects:
 * [Than.js (Physics Calc)](physics/)
 * [Konastats.js (Stats Calc)](stats/)
-* [PolyCalc.js (Polynomial Calc)](polynomials/) (Needs Documentation)
+* [PolyCalc.js (Polynomial Calc)](polynomials/)
