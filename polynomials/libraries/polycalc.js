@@ -34,14 +34,14 @@ class Polynomial {
         }
       }
     }
-    return zeros.size > 0 ? [...zeros] : "irrational";
+    return zeros.size > 0 ? [...zeros] : [];
   }
 
   stringify() {
     return this.constants.reduce((acc, cur, i) => {
       let sign = cur < 0 ? "-" : i > 0 ? "+" : "";
       let power = this.len - i - 1;
-      let constant = Math.abs(cur) != 1 ||  power <= 1 ? Math.abs(cur) : "";
+      let constant = Math.abs(cur) != 1 || power <= 1 ? Math.abs(cur) : "";
       let xPower = power > 1 ? "x^" + power : power == 1 ? "x" : "";
       return acc += `${sign}${constant}${xPower}`;
     }, "");

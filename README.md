@@ -8,6 +8,6 @@ EthanThatOneKid's archive of mathematical experimentations and applications.
 * [Limacon Visualizations](limacon/)
 
 ## Accumulative Projects:
-* [Than.js (Physics Calc)](physics/) (Needs Documentation)
+* [Than.js (Physics Calc)](physics/)
 * [Konastats.js (Stats Calc)](stats/)
 * [PolyCalc.js (Polynomial Calc)](polynomials/) (Needs Documentation)
