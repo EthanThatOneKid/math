@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+
+  <title>Shor Factoring</title>
+
+  <style>
+    table, tr, td {
+      border: 1px solid black;
+    }
+    h1 {
+      margin: 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Shor's Factoring</h1><br>
+  <small>Ethan Davidson & David Haber</small>
+
+  <br><br><br>
+
+  <label>n:</label><input id="n" type="number"><br>
+  <label>x:</label><input id="x" type="number"><br>
+  <button id="submit">submit</button>
+  <button id="clear">clear</button>
+
+  <div id="result"></div>
+
+  <script src="shor_factor.js"></script>
+
+  <script>
+
+    document.querySelector("#submit").addEventListener("click", (event) => {
+
+      const n = Number(document.querySelector("#n").value);
+      const x = Number(document.querySelector("#x").value);
+
+      if (n < 3 || x < 2 || x >= n || n >= 1000) {
+
+        document.querySelector("#result").innerHTML = "Bad Inputs";
+
+      } else {
+
+        const result = shor_factor(n, x);
+
+        const table = result.residue_summary.reduce((tb, row, i) => {
+          const tr = document.createElement("tr");
+          const td1 = document.createElement("td");
+          const td2 = document.createElement("td");
+          td1.innerText = i + 1;
+          td2.innerText = row;
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tb.appendChild(tr);
+          return tb;
+        }, document.createElement("table"));
+
+        const h1 = document.createElement("h1");
+        const factor = result.factor ? result.factor : "x^(p/2) + 1 = 0";
+        h1.innerText = `Factor: ${factor}\nPeriod: ${result.p}`;
+
+        document.querySelector("#result").appendChild(h1);
+        document.querySelector("#result").appendChild(table);
+
+      }
+
+    });
+
+    document.querySelector("#clear").addEventListener("click", (event) => {
+      document.querySelector("#n").value = document.querySelector("#x").value = "";
+      document.querySelector("#result").innerHTML = "";
+    });
+
+  </script>
+
+</body>
+</html>
