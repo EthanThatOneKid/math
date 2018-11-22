@@ -1,11 +1,21 @@
 const shor_factor = (N) => {
 
-  const x = 2;
+  N = 21;
+  const x = 11;
 
   // length of registers r1 and r2, q
   const q = Math.ceil(Math.log2(N * N));
 
+  // closest bigger power of 2 to N^2, Q
+  const Q = Math.pow(2, q);
 
+  const register = [];
+  for (let qubit = 0; qubit < Q; qubit++) {
+    register.push([qubit, Math.pow(x, qubit) % N]);
+  }
+
+  return register;
+  
 };
 
 // Helper Classes
@@ -45,25 +55,6 @@ class Complex {
   conjugate() {
     return new Complex(this.a, -1 * this.b);
   }
-
-}
-
-class Register {
-
-  constructor(qubits, config) {
-    // each qubit contains 2 complex numbers
-    this.qubits = new Array(qubits).fill(0)
-      .map(i => new Array(2).fill(0)
-        .map(j => {
-          if (config.type == "hadamard")
-            return new Complex(1, 0).scamul(Math.sqrt(2) * 0.5);
-          else if (config.type == "")
-        }));
-  }
-
-
-
-
 
 }
 
