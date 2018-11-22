@@ -30,16 +30,14 @@ class Complex {
     if (c instanceof Complex) {
       this.a += c.a;
       this.b += c.b;
-    }
-    return this;
+    } return this;
   }
 
   mul(c) {
     if (c instanceof Complex) {
       this.a = (this.a * c.a) - (this.b * c.b);
       this.b = (this.b * c.a) + (this.a * c.b);
-    }
-    return this;
+    } return this;
   }
 
   scamul(n) {
