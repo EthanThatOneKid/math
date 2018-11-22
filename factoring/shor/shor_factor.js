@@ -30,20 +30,20 @@ class Complex {
     if (c instanceof Complex) {
       this.a += c.a;
       this.b += c.b;
-    } return this;
+    } return this.copy;
   }
 
   mul(c) {
     if (c instanceof Complex) {
       this.a = (this.a * c.a) - (this.b * c.b);
       this.b = (this.b * c.a) + (this.a * c.b);
-    } return this;
+    } return this.copy();
   }
 
   scamul(n) {
     this.a *= n;
     this.b *= n;
-    return this;
+    return this.copy();
   }
 
   mag() {
@@ -52,6 +52,10 @@ class Complex {
 
   conjugate() {
     return new Complex(this.a, -1 * this.b);
+  }
+  
+  copy() {
+    return new Complex(this.a, this.b);
   }
 
 }
