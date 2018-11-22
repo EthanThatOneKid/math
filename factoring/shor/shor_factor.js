@@ -1,3 +1,72 @@
+const shor_factor = (N) => {
+
+  const x = 2;
+
+  // length of registers r1 and r2, q
+  const q = Math.ceil(Math.log2(N * N));
+
+
+};
+
+// Helper Classes
+class Complex {
+
+  constructor(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+
+  add(c) {
+    if (c instanceof Complex) {
+      this.a += c.a;
+      this.b += c.b;
+    }
+    return this;
+  }
+
+  mul(c) {
+    if (c instanceof Complex) {
+      this.a = (this.a * c.a) - (this.b * c.b);
+      this.b = (this.b * c.a) + (this.a * c.b);
+    }
+    return this;
+  }
+
+  scamul(n) {
+    this.a *= n;
+    this.b *= n;
+    return this;
+  }
+
+  mag() {
+    return Math.sqrt((this.a * this.a) + (this.b * this.b));
+  }
+
+  conjugate() {
+    return new Complex(this.a, -1 * this.b);
+  }
+
+}
+
+class Register {
+
+  constructor(qubits, config) {
+    // each qubit contains 2 complex numbers
+    this.qubits = new Array(qubits).fill(0)
+      .map(i => new Array(2).fill(0)
+        .map(j => {
+          if (config.type == "hadamard")
+            return new Complex(1, 0).scamul(Math.sqrt(2) * 0.5);
+          else if (config.type == "")
+        }));
+  }
+
+
+
+
+
+}
+
 // Helper Functions
 const gcd = (a, b) => b ? gcd(b, a % b) : a;
 
@@ -12,20 +81,27 @@ const matmul = (A, B) => {
   } return product;
 };
 
-const scamul = (A, B) => {
-  for (let i = 0; i < B.length; i++) {
-    for (let j = 0; j < B[i].length; j++)
-      B[i][j] *= A;
-  }
-  return B;
-}
+const scamul = (A, scalar) => {
+  for (let i = 0; i < A.length; i++) {
+    for (let j = 0; j < A[i].length; j++)
+      A[i][j] *= scalar;
+  } return A;
+};
 
-// const matmul_es6 = (a, b) => {
-//   return new Array(a.length).fill(0)
-//     .map(row => new Array(b[0].length).fill(0))
-//     .map((row, i) => row.map((val, j) => {
-//       return a[i].reduce((sum, cur, k) => cur * b[k][j] + sum, 0);
-//     }));
-// }
-//
-// const matmul_1line = (a, b) => new Array(a.length).fill(0).map(row => new Array(b[0].length).fill(0)).map((row, i) => row.map((val, j) => a[i].reduce((sum, cur, k) => cur * b[k][j] + sum, 0)));
+const ketmul = (A, B) => {
+  for (var i = 0, result = []; i < A.length; i++) {
+    for (let j = 0; j < B.length; j++)
+      result.push(A[i] * B[j]);
+  } return result;
+};
+
+const to_base2 = (base10) => {
+  return base10.toString(2).split("")
+    .map(i => i == "1" ? [0, 1] : [1, 0])
+    .reduce((acc, cur) => acc.length ? ketmul(acc, cur) : cur, []);
+};
+
+const apply_hadamard = (A) => {
+  const H = scamul([[1, 1], [1, -1]], Math.sqrt(2) * 0.5);
+  return matmul(H, A);
+};
