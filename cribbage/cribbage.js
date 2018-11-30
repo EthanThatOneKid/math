@@ -14,16 +14,27 @@ class Cribbage {
 	log() {
 		console.log(this);
 	}
+	
+	static cardFromString(str) {
+		const card = str[0];
+		const suit = str[1].toUpperCase();
+		const value = card == "K" || card == "Q" || card == "J" ? 10 : card == "A" ? 1 : Number(card);
+		const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
+		return {value, suit, card};
+	}
+	
+	static optimizeHand(hand) {
+		const remaining_necessary = 5 - hand.length;
+		const starter = hand[0];
+		// for (let v = 1; v <= 13; v++) {
+			
+		
+	}
 
 	static randomHand(len = 5) {
 		let result = [];
 		const suits = ["S", "C", "D", "H"];
-		const royalty = {
-			"1": "A",
-			"11": "J",
-			"12": "Q",
-			"13": "K"
-		};
+		const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
 		for (let i = 0; i < len; i++) {
 			const val = Math.floor(Math.random() * 13) + 1;
 			result.push({
