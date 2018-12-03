@@ -51,7 +51,7 @@ class Cribbage {
 			if (cur == best_fitness) {
 				const hand = [...combinations[i], ...hand].map(Cribbage.cardStringFromObject);
 				acc.possibilities.push(hand);
-			}
+			} return acc;
 		}, {
 			points: best_fitness,
 			possibilities: []
