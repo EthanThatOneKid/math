@@ -14,7 +14,7 @@ class Cribbage {
 	log() {
 		console.log(this);
 	}
-	
+
 	static cardFromString(str) {
 		const card = str[0];
 		const suit = str[1].toUpperCase();
@@ -22,13 +22,40 @@ class Cribbage {
 		const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
 		return {value, suit, card};
 	}
-	
+
+	static cardStringFromObject(obj) {
+		const translator = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+		return translator[obj.value] + obj.suit.toUpperCase();
+	}
+
 	static optimizeHand(hand) {
-		const remaining_necessary = 5 - hand.length;
-		const starter = hand[0];
-		// for (let v = 1; v <= 13; v++) {
-			
-		
+		const used_cards = new Set(...hand);
+		hand = hand.reverse().map(Cribbage.cardFromString);
+
+		const remaining_cards = [];
+		["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"].forEach((c) => {
+			["S", "C", "D", "H"].forEach((s) => if (!used_cards.has(c + s)) remaining_cards.push(Cribbage.cardFromString(c + s));
+		}});
+
+		const combinations = Cribbage.k_combinations(remaining_cards, 5 - hand.length);
+
+		const fitness_chart = [];
+		for (let i in combinations) {
+			const gimme_hand = [...combinations[i], ...hand];
+			const gimme_score = (new Cribbage(gimme_hand)).total;
+			fitness_chart.push(gimme_score);
+		}
+
+		const best_fitness = Math.max(...fitness_chart);
+		return fitness_chart.reduce((acc, cur, i) => {
+			if (cur == best_fitness) {
+				const hand = [...combinations[i], ...hand].map(Cribbage.cardStringFromObject);
+				acc.possibilities.push(hand);
+			}
+		}, {
+			points: best_fitness,
+			possibilities: []
+		});
 	}
 
 	static randomHand(len = 5) {
@@ -149,6 +176,24 @@ class Cribbage {
 		data["total"] = total;
 
 		return data;
+	}
+
+	static k_combinations(set, k) {
+		let i, j, combs, head, tailcombs;
+		if (k > set.length || k <= 0) return [];
+		if (k == set.length) return [set];
+		if (k == 1) {
+			combs = [];
+			for (i = 0; i < set.length; i++) combs.push([set[i]]);
+			return combs;
+		}
+		combs = [];
+		for (i = 0; i < set.length - k + 1; i++) {
+			head = set.slice(i, i + 1);
+			tailcombs = k_combinations(set.slice(i + 1), k - 1);
+			for (j = 0; j < tailcombs.length; j++) combs.push(head.concat(tailcombs[j]));
+		}
+		return combs;
 	}
 
 }
