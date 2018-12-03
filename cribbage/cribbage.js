@@ -64,7 +64,12 @@ class Cribbage {
 	static randomHand(len = 5) {
 		let result = [];
 		const suits = ["S", "C", "D", "H"];
-		const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
+		const royalty = {
+			"1": "A",
+			"11": "J",
+			"12": "Q",
+			"13": "K"
+		};
 		for (let i = 0; i < len; i++) {
 			const val = Math.floor(Math.random() * 13) + 1;
 			result.push({
