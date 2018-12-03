@@ -15,6 +15,7 @@ class Cribbage {
 		console.log(this);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	static cardFromString(str) {
 		const card = str[0];
@@ -61,6 +62,8 @@ class Cribbage {
 			possibilities: []
 		});
 	}
+=======
+>>>>>>> parent of d5ef110... Update cribbage.js
 =======
 >>>>>>> parent of d5ef110... Update cribbage.js
 
