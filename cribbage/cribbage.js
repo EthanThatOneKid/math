@@ -15,52 +15,6 @@ class Cribbage {
 		console.log(this);
 	}
 
-	static cardFromString(str) {
-		const card = str[0];
-		const suit = str[1].toUpperCase();
-		const value = card == "K" || card == "Q" || card == "J" ? 10 : card == "A" ? 1 : Number(card);
-		const royalty = {"1": "A", "11": "J", "12": "Q", "13": "K"};
-		return {value, suit, card};
-	}
-
-	static cardStringFromObject(obj) {
-		const translator = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-		return translator[obj.value] + obj.suit.toUpperCase();
-	}
-
-	static optimizeHand(hand) {
-		const used_cards = new Set(...hand);
-		hand = hand.reverse().map(Cribbage.cardFromString);
-
-		const remaining_cards = [];
-		["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"].forEach((c) => {
-			["S", "C", "D", "H"].forEach((s) => {
-				if (!used_cards.has(c + s))
-					remaining_cards.push(Cribbage.cardFromString(c + s));
-			});
-		});
-
-		const combinations = Cribbage.k_combinations(remaining_cards, 5 - hand.length);
-
-		const fitness_chart = [];
-		for (let i in combinations) {
-			const gimme_hand = [...combinations[i], ...hand];
-			const gimme_score = (new Cribbage(gimme_hand)).total;
-			fitness_chart.push(gimme_score);
-		}
-
-		const best_fitness = Math.max(...fitness_chart);
-		return fitness_chart.reduce((acc, cur, i) => {
-			if (cur == best_fitness) {
-				const hand = [...combinations[i], ...hand].map(Cribbage.cardStringFromObject);
-				acc.possibilities.push(hand);
-			} return acc;
-		}, {
-			points: best_fitness,
-			possibilities: []
-		});
-	}
-
 	static randomHand(len = 5) {
 		let result = [];
 		const suits = ["S", "C", "D", "H"];
