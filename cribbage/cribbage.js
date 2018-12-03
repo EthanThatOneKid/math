@@ -36,7 +36,7 @@ class Cribbage {
 		["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"].forEach((c) => {
 			["S", "C", "D", "H"].forEach((s) => {
 				if (!used_cards.has(c + s))
-					remaining_cards.push(Cribbage.cardFromString(c + s);
+					remaining_cards.push(Cribbage.cardFromString(c + s));
 			});
 		});
 
