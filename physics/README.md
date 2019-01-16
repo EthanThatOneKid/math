@@ -64,5 +64,5 @@ Than.js is a JavaScript library of physics operations.
   * returns that angle in degrees
 
 ## Examples
-* [Conversion](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/physics/conversion/index.html)
-* [Sum Vectors](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/physics/sumvectors/index.html)
+* [Conversion](https://ethanthatonekid.github.io/math/physics/conversion)
+* [Sum Vectors](https://ethanthatonekid.github.io/math/physics/sumvectors)

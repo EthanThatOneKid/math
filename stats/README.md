@@ -1,5 +1,5 @@
-# konastats.js
-### available functions:
+# Konastats.js
+## Available Functions:
 * `Stats.average(array)`
   * returns average of array
 * `Stats.median(array)`
@@ -12,6 +12,6 @@
   * returns object of keys min, q1, median, q3, max
 * `Stats.linearRegression(array2xN)`
   * returns object of keys a, b, `{a: slope, b: y-int}`
-### examples:
-* [Demo](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/stats/examples/demo/index.html)
-* [Linear Regression](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/stats/examples/linearRegression/index.html)
+## Examples:
+* [Demo](https://ethanthatonekid.github.io/math/stats/examples/demo)
+* [Linear Regression](https://ethanthatonekid.github.io/math/stats/examples/linearRegression)

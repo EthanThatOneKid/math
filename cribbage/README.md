@@ -1,6 +1,6 @@
 # Cribbage.js
 
-## 😊 [The Cribbage Calculator](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/cribbage/demo/index.html)😊
+## 😊 [The Cribbage Calculator](https://ethanthatonekid.github.io/math/cribbage/demo)😊
 
 ## Documentation:
 ### initialization:

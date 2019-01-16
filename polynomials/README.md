@@ -29,3 +29,7 @@ polycalc.js is a library for doing math with polynomial functions!
     * uses the quadratic formula to find any solutions that may be irrational
     * only works with a trinomial Polynomial instance
     * returns array with two solutions
+
+## Example Previews
+* [Solve For Y](https://ethanthatonekid.github.io/math/polynomials/examples/solvefory)
+* [Solve For Rational Zeros](https://ethanthatonekid.github.io/math/polynomials/examples/solveforrationalzeros)

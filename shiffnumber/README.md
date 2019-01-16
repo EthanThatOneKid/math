@@ -1,6 +1,6 @@
 # ShiffNumber Experimentation
 
-## [ShiffNumber Test](https://htmlpreview.github.io/?https://github.com/EthanThatOneKid/math/blob/master/shiffnumber/index.html)
+## [ShiffNumber Test](https://ethanthatonekid.github.io/math/shiffnumber)
 
 ## Main Usage:
 * `ShiffNumber(num, from, to, [digitsLength=7])`
